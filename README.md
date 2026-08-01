@@ -14,6 +14,8 @@ A few notes to begin with:
 
 3. A minimal background knowledge on Linux commands and Linux in general will be helpful, but isn't mandatory.
 
+4. If you're a Linux nerd and find a mistake here, please inform me by creating an issue!
+
 I will be using the [GNOME](https://www.gnome.org/) desktop environment because it looks modern out of the box and gets the job done.
 
 # Installation
