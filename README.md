@@ -1,6 +1,12 @@
 # Introduction
 
-This document is my process for installing and setting up Arch Linux on my laptop for personal use.
+This is a step-by-step guide on setting up Arch Linux for personal daily use. The following video shows what we'll have at the end.
+
+## [Watch 1-min demonstration video!](https://www.youtube.com/watch?v=C4uiSL4xvbU)
+
+[![Watch the video](./assets/video-thumbnail.png)](https://www.youtube.com/watch?v=C4uiSL4xvbU)
+
+A few notes to begin with:
 
 1. This is just my way to do things. You're free to have different preferences.
 
@@ -351,6 +357,9 @@ yay -S --noconfirm kora-icon-theme bibata-cursor-theme-bin
 
 ```sh
 sudo pacman -S --needed --noconfirm ttf-jetbrains-mono ttf-jetbrains-mono-nerd inter-font awesome-terminal-fonts otf-font-awesome woff2-font-awesome
+
+# beware, ttf-google is huge!
+yay -S --needed --noconfirm ttf-google ttf-material-symbols-variable ttf-material-symbols-variable
 ```
 
 Since I'm Iranian, I'll also install some Persian fonts. No matter where you live, there's probably a font pack for your language on the AUR.
