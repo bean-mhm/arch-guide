@@ -886,7 +886,7 @@ sudo systemctl enable --now switcheroo-control
 
 6. Reboot.
 
-# Adding a new user
+# Adding a guest user
 
 It's pretty rare, but occasionally a parent or guest needs to use my laptop for a simple task like web browsing or editing documents. Now, I don't want them to have full access to my main setup, so I create a guest account with a different password that they can use. Here's how we can do that.
 
