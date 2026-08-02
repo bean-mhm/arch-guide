@@ -509,7 +509,19 @@ Open __Extensions__ from the app menu. Here you'll see a list of the extensions 
 
 4. Go to the __Features__ tab, turn on __Enable Auto-Paste__
 
+5. Open a terminal and run `ibus-setup` to open __IBus Preferences__.
+
+6. Go to the __Emoji__ tab in __IBus Preferences__.
+
+7. Click on __...__ for __Emoji annotation__.
+
+8. For every item in the list, click on it and then hit __Delete__ until the list is empty.
+
+9. Hit __OK__ and close __IBus Preferences__.
+
 We can now open clipboard history with _[Super+V]_ and use Emojis with _[Super+.]_.
+
+> IBus is an Input Method Editor (IME). Learn more on [Wikipedia](https://en.wikipedia.org/wiki/Input_method) if you're interested.
 
 ## Blur my Shell
 
@@ -819,7 +831,7 @@ Needless to say, this is different for every person. The following is just the l
 ## pacman
 
 ```
-7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc gimp git glider godot-mono gpu-viewer graphs handbrake harfbuzz hieroglyphic identity impression kdenlive kicad kicad-library kicad-library-3d krita lazygit less linux-headers lsof lsp-plugins make man-db man-pages mplayer mpv ninja nodejs obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent reaper resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript uget unrar unzip unzip v2ray-domain-list-community v2ray-geoip vlc vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
+7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc gimp git glider godot-mono gpu-viewer graphs handbrake harfbuzz hieroglyphic identity impression kdenlive kicad kicad-library kicad-library-3d krita lazygit less libreoffice-fresh linux-headers lsof lsp-plugins make man-db man-pages mplayer mpv ninja nodejs obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent reaper resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript uget unrar unzip unzip v2ray-domain-list-community v2ray-geoip vlc vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
 ```
 
 ## AUR
@@ -873,6 +885,26 @@ sudo systemctl enable --now switcheroo-control
 ```
 
 6. Reboot.
+
+# Adding a new user
+
+It's pretty rare, but occasionally a parent or guest needs to use my laptop for a simple task like web browsing or editing documents. Now, I don't want them to have full access to my main setup, so I create a guest account with a different password that they can use. Here's how we can do that.
+
+1. Go to __Settings > System > Users__.
+
+2. Hit __Unlock__ at the top and enter your password to gain root permissions.
+
+3. Hit __Add User__.
+
+4. Set __Full Name__ and __Username__ to "guest" or whatever you prefer.
+
+5. Keep __Administrator__ off.
+
+6. Hit __Set password now__ and then __Next__.
+
+7. Enter a password for the guest account and hit __Add__.
+
+I've also adjusted some settings here and there in the guest user (e.g. set display scale to 125% and changed the wallpaper) to make the experience slightly better for the "guests".
 
 # Bypassing internet restrictions
 
