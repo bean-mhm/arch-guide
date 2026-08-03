@@ -168,6 +168,9 @@ pyenv() {
 alias editfonts='code ~/.config/fontconfig/fonts.conf'
 alias reloadfonts='fc-cache -fv'
 
+# generate qr code in the terminal
+alias qr="qrencode -t UTF8"
+
 # run sudo in a loop in the background to avoid timeout. useful when installing
 # many packages with something like yay which might ask for a password at a
 # random time when you're not aware.
