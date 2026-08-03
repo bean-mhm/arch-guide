@@ -4,7 +4,7 @@ This is a step-by-step guide on setting up Arch Linux for personal daily use. Th
 
 ## [Watch 1-min demonstration video!](https://www.youtube.com/watch?v=C4uiSL4xvbU)
 
-[![Watch the video](./assets/video-thumbnail.png)](https://www.youtube.com/watch?v=C4uiSL4xvbU)
+[![Watch the video](./assets/video-thumbnail.webp)](https://www.youtube.com/watch?v=C4uiSL4xvbU)
 
 A few notes to begin with:
 
@@ -13,8 +13,6 @@ A few notes to begin with:
 2. I've tried to keep things simple and include tips here and there so beginners can follow through.
 
 3. A minimal background knowledge on Linux commands and Linux in general will be helpful, but isn't mandatory.
-
-4. If you're a Linux nerd and find a mistake here, please inform me by creating an issue!
 
 I will be using the [GNOME](https://www.gnome.org/) desktop environment because it looks modern out of the box and gets the job done.
 
@@ -109,7 +107,9 @@ A package can be a program, game, library (for programming languages), theme, fo
 
 # Installing yay and Firefox
 
-[yay](https://github.com/Jguer/yay) gives us access to tons of packages from the [AUR (Arch User Repository)](https://aur.archlinux.org/) which contains almost any program, font, or theme you could imagine. It _is_ community-maintained, though, so there is some security risk.
+[yay](https://github.com/Jguer/yay) gives us access to tons of packages from the [AUR (Arch User Repository)](https://aur.archlinux.org/) which contains almost any program, font, or theme you could imagine.
+
+__NOTE:__ The AUR is community-maintained and malicious packages can exist. Try to install things with pacman unless it only exists on the AUR, and even then, try to read its PKGBUILD script to verify it's safe.
 
 ```sh
 sudo pacman -S --needed --noconfirm git base-devel && \
@@ -432,16 +432,16 @@ __Another reminder that these settings are subjective.__
 
 5. Add a new shortcut named __Open Terminal__ and set the __Command__ to `kgx &` and the __Shortcut__ to _[Super+Q]_.
 
-6. Add another one named __Open Resources__ and set the __Command__ to `resources &` and the __Shortcut__ to _[Ctrl+Shift+Esc]_.
+6. Add another one named __Open Mission Center__ and set the __Command__ to `missioncenter` and the __Shortcut__ to _[Ctrl+Shift+Esc]_.
 
 We can now:
 
 1. Hit _[Super+N]_ to open and close the notification panel.
 2. Hit _[Super+W]_ to close the focused window.
 3. Hit _[Super+Q]_ to quickly open a new terminal window.
-4. Hit _[Ctrl+Shift+Esc]_ to open Resources, once we install it in later steps.
+4. Hit _[Ctrl+Shift+Esc]_ to open Mission Center, once we install it in later steps.
 
-> [Resources](https://apps.gnome.org/Resources/) is similar to the task manager on Windows. It shows us how different programs are utilizing our hardware, CPU and GPU usage graphs, temperature graphs, and so forth. We'll install Resources in later steps.
+> [Mission Center](https://missioncenter.io/) is similar to the task manager on Windows. It shows us how different programs are utilizing our hardware along with CPU and GPU usage graphs, temperature graphs, and so forth. We'll install Mission Center in later steps.
 
 ## Logout button
 
@@ -831,7 +831,7 @@ Needless to say, this is different for every person. The following is just the l
 ## pacman
 
 ```
-7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc gimp git glider godot-mono gpu-viewer graphs handbrake harfbuzz hieroglyphic identity impression kdenlive kicad kicad-library kicad-library-3d krita lazygit less libreoffice-fresh linux-headers lsof lsp-plugins make man-db man-pages mplayer mpv ninja nodejs obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent reaper resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript uget unrar unzip unzip v2ray-domain-list-community v2ray-geoip vlc vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
+7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc gimp git glider godot-mono gpu-viewer graphs handbrake harfbuzz hieroglyphic identity impression kdenlive kicad kicad-library kicad-library-3d krita lazygit less libreoffice-fresh linux-headers lsof lsp-plugins make man-db man-pages mission-center mplayer mpv ninja nodejs obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent reaper resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript uget unrar unzip unzip v2ray-domain-list-community v2ray-geoip vlc vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
 ```
 
 ## AUR
