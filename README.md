@@ -488,12 +488,14 @@ sudo pacman -S --noconfirm gnome-browser-connector
 - [Burn My Windows](https://extensions.gnome.org/extension/4679/burn-my-windows/)
 - [Color Picker](https://extensions.gnome.org/extension/3396/color-picker/)
 - [Dash to Dock](https://extensions.gnome.org/extension/307/dash-to-dock/)
+- [Edit Desktop Files](https://extensions.gnome.org/extension/7397/edit-desktop-files/)
 - [GSConnect](https://extensions.gnome.org/extension/1319/gsconnect/)
 - [Hibernate Power Menu](https://extensions.gnome.org/extension/10398/hibernate-power-menu/)
 - [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/)
 - [Slider Percentages](https://extensions.gnome.org/extension/10125/slider-percentages/)
 - [Status Tray](https://extensions.gnome.org/extension/9164/status-tray/)
 - [Switch Workspace](https://extensions.gnome.org/extension/1231/switch-workspace/)
+- [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
 
 # Configuring extensions
 
@@ -559,11 +561,15 @@ We can now open clipboard history with _[Super+V]_ and use Emojis with _[Super+.
 yay -S --noconfirm gnome-rounded-blur
 ```
 
+Blurry backgrounds are probably one of the greatest inventions in graphicals UIs.
+
 ## Burn My Windows
 
 1. Open its settings.
 
 2. Disable everything and then enable __TV Effect__. Expand __TV Effect__ and set __Animation Time__ to 250 ms.
+
+Now your windows will have a super cool TV effect when opening and closing!
 
 ## Color Picker
 
@@ -607,6 +613,18 @@ We can now hit _[Super+C]_ to pick a color anywhere on the screen and copy it to
 
 15. Enable __Shrink the dash__ and __Show overview on startup__.
 
+## Edit Desktop Files
+
+This extension allows us to right click on an app icon and edit its `.desktop` file. Useful for both learning and modifying commands for certain apps.
+
+No settings to change for this one!
+
+## GSConnect
+
+This is the GNOME version of [KDE Connect](https://kdeconnect.kde.org/). You can install KDE Connect on your phone to transfer files between your desktop and phone and remote control your desktop too.
+
+No settings to change for this one either.
+
 ## Hibernate Power Menu
 
 1. Turn off __Show Hybrid Sleep__ unless you actually use that feature.
@@ -633,6 +651,10 @@ __NOTE:__ The hibernate button may not show up yet. We'll handle this in later s
 
 8. Set __Workspace Switcher Size__ to 8%.
 
+## Slider Percentages
+
+No settings to change for this one either either.
+
 ## Status Tray
 
 1. Set __Icon Style__ to _Original (colored)_.
@@ -646,6 +668,14 @@ __NOTE:__ The hibernate button may not show up yet. We'll handle this in later s
 Set __Switch Workspace Keybinding__ to _[Super+Tab]_. We can now use this hotkey to switch workspaces.
 
 > Another way to switch workspaces is to hold _[Super]_ and scroll with your mouse. You can also hover your mouse over the workspace indicator at the top left and scroll there.
+
+## Top Panel Workspace Scroll
+
+This one is an absolute must-have for me. It lets you switch workspaces by simply hovering over the top bar and scrolling with your mouse!
+
+1. Turn on __Wrap around__ and keep __Show indicator__ off.
+
+2. Set __Minimum delay between scroll events__ to 50 ms.
 
 # Ignoring lid close
 
