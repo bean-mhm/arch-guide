@@ -98,6 +98,9 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias diff='diff --color=auto'
 
+# find process by name or command line
+alias findpc="pgrep -lafi --delimiter $'\n--------------------------------------------------\n'"
+
 # load and edit .zshrc
 alias loadrc='source ~/.zshrc'
 alias editrc='code ~/.zshrc'

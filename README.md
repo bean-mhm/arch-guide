@@ -428,20 +428,28 @@ __Another reminder that these settings are subjective.__
 
 3. Find __Close window__ and set its shortcut to _[Super+W]_.
 
-4. Go to __Custom Shortcuts__ and click __Add Shortcut__.
+4. Find __Launch calculator__ and set its shortcut to _[Super+Z]_.
 
-5. Add a new shortcut named __Open Terminal__ and set the __Command__ to `kgx &` and the __Shortcut__ to _[Super+Q]_.
+5. Go to __Custom Shortcuts__ and click __Add Shortcut__.
 
-6. Add another one named __Open Mission Center__ and set the __Command__ to `missioncenter` and the __Shortcut__ to _[Ctrl+Shift+Esc]_.
+6. Add a new shortcut named __Open Terminal__ and set the __Command__ to `kgx &` and the __Shortcut__ to _[Super+Q]_.
+
+7. Add another one named __Open Mission Center__ and set the __Command__ to `missioncenter` and the __Shortcut__ to _[Ctrl+Shift+Esc]_.
 
 We can now:
 
 1. Hit _[Super+N]_ to open and close the notification panel.
 2. Hit _[Super+W]_ to close the focused window.
-3. Hit _[Super+Q]_ to quickly open a new terminal window.
-4. Hit _[Ctrl+Shift+Esc]_ to open Mission Center, once we install it in later steps.
+3. Hit _[Super+Z]_ to open the calculator.
+4. Hit _[Super+Q]_ to quickly open a new terminal window.
+5. Hit _[Ctrl+Shift+Esc]_ to open Mission Center, once we install it in later steps.
 
 > [Mission Center](https://missioncenter.io/) is similar to the task manager on Windows. It shows us how different programs are utilizing our hardware along with CPU and GPU usage graphs, temperature graphs, and so forth. We'll install Mission Center in later steps.
+
+These are already set by default, but we can also:
+
+1. Hit _[Super+A]_ to show the apps menu without going to the Overview first.
+2. Hit _[Super+S]_ to open the quick settings panel without using the mouse.
 
 ## Logout button
 
