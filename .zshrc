@@ -6,7 +6,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Lines configured by zsh-newuser-install
@@ -66,15 +66,15 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # change socks:// and socks5:// proxy strings to socks5h://
 #-----------------------------------------------------------
 if true; then
-  for proxy_var in HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy; do
-      value="${(P)proxy_var}"
+    for proxy_var in HTTP_PROXY HTTPS_PROXY ALL_PROXY http_proxy https_proxy all_proxy; do
+        value="${(P)proxy_var}"
 
-      if [[ "$value" == socks://* ]]; then
-          export "$proxy_var"="socks5h://${value#socks://}"
-      elif [[ "$value" == socks5://* ]]; then
-          export "$proxy_var"="socks5h://${value#socks5://}"
-      fi
-  done
+        if [[ "$value" == socks://* ]]; then
+            export "$proxy_var"="socks5h://${value#socks://}"
+        elif [[ "$value" == socks5://* ]]; then
+            export "$proxy_var"="socks5h://${value#socks5://}"
+        fi
+    done
 fi
 
 
@@ -194,10 +194,17 @@ alias pacsync="the-pacman -Syy"
 
 # pacman and yay: update everything
 pacupp() {
-  sudoloop
-  the-pacman -Syu --noconfirm || return
-  the-yay -Syu --noconfirm || return
-  echo "updated everything"
+    local reply
+    read "reply?update yay packages too (AUR)? (y/N) "
+
+    sudoloop
+    the-pacman -Syu --noconfirm || return
+
+    if [[ $reply == [Yy]* ]]; then
+        the-yay -Syu --noconfirm || return
+    fi
+
+    echo "updated everything"
 }
 
 # yay: update everything
@@ -318,53 +325,53 @@ ggsh() {
 # * NOT RECOMMENDED, USE ggset AND ggsh INSTEAD.
 # set a SOCKS5 proxy for ssh, git, pacman, curl(? not sure), etc.
 set_socks5() {
-  local proxy_addr="$1"
-  if [[ -z "$proxy_addr" ]]; then
-    echo "usage: set_socks5 host:port"
-    return 1
-  fi
+    local proxy_addr="$1"
+    if [[ -z "$proxy_addr" ]]; then
+        echo "usage: set_socks5 host:port"
+        return 1
+    fi
 
-  alias ssh="ssh -o ProxyCommand=\"ncat --proxy-type socks5 --proxy $proxy_addr %h %p\""
-  export GIT_SSH_COMMAND="ssh -o ProxyCommand='ncat --proxy-type socks5 --proxy $proxy_addr %h %p'"
-  export ALL_PROXY="socks5h://$proxy_addr"
-  export all_proxy="socks5h://$proxy_addr"
-  git config --global http.proxy socks5h://$proxy_addr
-  git config --global https.proxy socks5h://$proxy_addr
+    alias ssh="ssh -o ProxyCommand=\"ncat --proxy-type socks5 --proxy $proxy_addr %h %p\""
+    export GIT_SSH_COMMAND="ssh -o ProxyCommand='ncat --proxy-type socks5 --proxy $proxy_addr %h %p'"
+    export ALL_PROXY="socks5h://$proxy_addr"
+    export all_proxy="socks5h://$proxy_addr"
+    git config --global http.proxy socks5h://$proxy_addr
+    git config --global https.proxy socks5h://$proxy_addr
 
-  loadrc
+    loadrc
 }
 
 # * NOT RECOMMENDED, USE ggset AND ggsh INSTEAD.
 # set HTTP proxy
 set_http() {
-  local proxy_addr="$1"
-  if [[ -z "$proxy_addr" ]]; then
-    echo "usage: set_http host:port"
-    return 1
-  fi
+    local proxy_addr="$1"
+    if [[ -z "$proxy_addr" ]]; then
+        echo "usage: set_http host:port"
+        return 1
+    fi
 
-  alias ssh="ssh -o ProxyCommand=\"ncat --proxy-type http --proxy $proxy_addr %h %p\""
-  export GIT_SSH_COMMAND="ssh -o ProxyCommand='ncat --proxy-type http --proxy $proxy_addr %h %p'"
-  export HTTP_PROXY="http://$proxy_addr"
-  export http_proxy="http://$proxy_addr"
-  export HTTPS_PROXY="http://$proxy_addr"
-  export https_proxy="http://$proxy_addr"
-  export ALL_PROXY="http://$proxy_addr"
-  export all_proxy="http://$proxy_addr"
-  git config --global http.proxy http://$proxy_addr
-  git config --global https.proxy http://$proxy_addr
+    alias ssh="ssh -o ProxyCommand=\"ncat --proxy-type http --proxy $proxy_addr %h %p\""
+    export GIT_SSH_COMMAND="ssh -o ProxyCommand='ncat --proxy-type http --proxy $proxy_addr %h %p'"
+    export HTTP_PROXY="http://$proxy_addr"
+    export http_proxy="http://$proxy_addr"
+    export HTTPS_PROXY="http://$proxy_addr"
+    export https_proxy="http://$proxy_addr"
+    export ALL_PROXY="http://$proxy_addr"
+    export all_proxy="http://$proxy_addr"
+    git config --global http.proxy http://$proxy_addr
+    git config --global https.proxy http://$proxy_addr
 
-  loadrc
+    loadrc
 }
 
 # unset proxy for ssh, git, pacman, curl(? not sure), etc.
 unset_proxy() {
-  unalias ssh 2>/dev/null
-  unset GIT_SSH_COMMAND
-  unset HTTP_PROXY http_proxy HTTPS_PROXY https_proxy ALL_PROXY all_proxy
-  git config unset --global http.proxy
-  git config unset --global https.proxy
-  loadrc
+    unalias ssh 2>/dev/null
+    unset GIT_SSH_COMMAND
+    unset HTTP_PROXY http_proxy HTTPS_PROXY https_proxy ALL_PROXY all_proxy
+    git config unset --global http.proxy
+    git config unset --global https.proxy
+    loadrc
 }
 
 # create HTTP proxy that forwards to SOCKS5 proxy
@@ -422,78 +429,78 @@ sshinit() {
 # zip a directory (by default, the current working directory) while respecting
 # .gitignore recursively.
 zipignore() {
-  local dir="${1:-.}"
-  local archive="${2:-archive.zip}"
-  local tmp_archive
+    local dir="${1:-.}"
+    local archive="${2:-archive.zip}"
+    local tmp_archive
 
-  # must be inside a git repo
-  if ! git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    echo >&2 "zipignore: '$dir' is not a git repo."
-    return 1
-  fi
+    # must be inside a git repo
+    if ! git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        echo >&2 "zipignore: '$dir' is not a git repo."
+        return 1
+    fi
 
-  # create a unique filename
-  tmp_archive=$(mktemp /tmp/zipignore_XXXXXX.zip)
-  rm -f "$tmp_archive"
-  trap 'rm -f "$tmp_archive"' EXIT
+    # create a unique filename
+    tmp_archive=$(mktemp /tmp/zipignore_XXXXXX.zip)
+    rm -f "$tmp_archive"
+    trap 'rm -f "$tmp_archive"' EXIT
 
-  # collect files via git
-  (
-    cd "$dir" || exit 1
-    git ls-files -z --cached --others --exclude-standard |
-      tr '\0' '\n' |
-      zip "$tmp_archive" -@
-  ) || {
-    echo >&2 "zipignore: failed to create archive."
-    return 1
-  }
+    # collect files via git
+    (
+        cd "$dir" || exit 1
+        git ls-files -z --cached --others --exclude-standard |
+            tr '\0' '\n' |
+            zip "$tmp_archive" -@
+    ) || {
+        echo >&2 "zipignore: failed to create archive."
+        return 1
+    }
 
-  # move finished archive into the target directory
-  mv "$tmp_archive" "$dir/$archive"
-  echo "created archive: $dir/$archive"
+    # move finished archive into the target directory
+    mv "$tmp_archive" "$dir/$archive"
+    echo "created archive: $dir/$archive"
 }
 
 # zip a directory (by default, the current working directory) with a password
 # while respecting .gitignore recursively.
 zipignore-pw() {
-  local dir="${1:-.}"
-  local archive="${2:-archive.zip}"
-  local password tmp_archive
+    local dir="${1:-.}"
+    local archive="${2:-archive.zip}"
+    local password tmp_archive
 
-  # must be inside a git repo
-  if ! git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    echo >&2 "zipignore: '$dir' is not a git repo."
-    return 1
-  fi
+    # must be inside a git repo
+    if ! git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+        echo >&2 "zipignore: '$dir' is not a git repo."
+        return 1
+    fi
 
-  # read password securely
-  echo -n "password: "
-  read -rs password
-  echo
-  if [[ -z "$password" ]]; then
-    echo >&2 "zipignore: password cannot be empty."
-    return 1
-  fi
+    # read password securely
+    echo -n "password: "
+    read -rs password
+    echo
+    if [[ -z "$password" ]]; then
+        echo >&2 "zipignore: password cannot be empty."
+        return 1
+    fi
 
-  # create a unique filename
-  tmp_archive=$(mktemp /tmp/zipignore_XXXXXX.zip)
-  rm -f "$tmp_archive"
-  trap 'rm -f "$tmp_archive"' EXIT
+    # create a unique filename
+    tmp_archive=$(mktemp /tmp/zipignore_XXXXXX.zip)
+    rm -f "$tmp_archive"
+    trap 'rm -f "$tmp_archive"' EXIT
 
-  # collect files via git
-  (
-    cd "$dir" || exit 1
-    git ls-files -z --cached --others --exclude-standard |
-      tr '\0' '\n' |
-      zip -P "$password" "$tmp_archive" -@
-  ) || {
-    echo >&2 "zipignore: failed to create archive."
-    return 1
-  }
+    # collect files via git
+    (
+        cd "$dir" || exit 1
+        git ls-files -z --cached --others --exclude-standard |
+            tr '\0' '\n' |
+            zip -P "$password" "$tmp_archive" -@
+    ) || {
+        echo >&2 "zipignore: failed to create archive."
+        return 1
+    }
 
-  # move finished archive into the target directory
-  mv "$tmp_archive" "$dir/$archive"
-  echo "created encrypted archive: $dir/$archive"
+    # move finished archive into the target directory
+    mv "$tmp_archive" "$dir/$archive"
+    echo "created encrypted archive: $dir/$archive"
 }
 
 cleanupp() {
