@@ -570,6 +570,9 @@ cleanupp() {
 # get fresh V2Ray configs (share links) and copy to clipboard
 alias getv2r="curl -sS https://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/All_Configs_Sub.txt | cbc"
 
+# this is for a weird bug where sudo randomly stops accepting my password
+alias resetfaillock="faillock --user $USER --reset"
+
 
 
 #-----------------------------------------------------------
