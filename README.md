@@ -434,7 +434,9 @@ __Another reminder that these settings are subjective.__
 
 6. Add a new shortcut named __Open Terminal__ and set the __Command__ to `kgx &` and the __Shortcut__ to _[Super+Q]_.
 
-7. Add another one named __Open Mission Center__ and set the __Command__ to `missioncenter` and the __Shortcut__ to _[Ctrl+Shift+Esc]_.
+7. Add another one named __Open Files__ with command `nautilus --new-window` and shortcut _[Super+E]_.
+
+8. One more: __Open Mission Center__, `missioncenter`, _[Ctrl+Shift+Esc]_.
 
 We can now:
 
@@ -442,7 +444,8 @@ We can now:
 2. Hit _[Super+W]_ to close the focused window.
 3. Hit _[Super+Z]_ to open the calculator.
 4. Hit _[Super+Q]_ to quickly open a new terminal window.
-5. Hit _[Ctrl+Shift+Esc]_ to open Mission Center, once we install it in later steps.
+5. Hit _[Super+E]_ to open a new file manager window.
+6. Hit _[Ctrl+Shift+Esc]_ to open Mission Center, once we install it in later steps.
 
 > [Mission Center](https://missioncenter.io/) is similar to the task manager on Windows. It shows us how different programs are utilizing our hardware along with CPU and GPU usage graphs, temperature graphs, and so forth. We'll install Mission Center in later steps.
 
