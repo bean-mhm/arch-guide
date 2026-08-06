@@ -305,6 +305,43 @@ copypartyy() {
     "${cmd[@]}"
 }
 
+# run copyparty and share the current working directory (quick'n'dirty)
+copypartyq() {
+    local root_dir admin_pw readonly_pw port
+    local -a cmd
+
+    root_dir="./"
+	admin_pw="welcome"
+    readonly_pw="guest"
+
+    printf "server port (default: 55555): "
+    read -r port
+    [[ -z "$port" ]] && port=55555
+
+    cmd=(
+        copyparty
+        -p "$port"
+        -j 0
+        --usernames
+        -a "admin:$admin_pw"
+    )
+
+    if [[ -n "$readonly_pw" ]]; then
+        cmd+=(
+            -a "guest:$readonly_pw"
+            -v "$root_dir::A,admin:r,guest"
+        )
+    else
+        cmd+=(
+            -v "$root_dir::A,admin"
+        )
+    fi
+
+    echo
+    echo "starting copyparty..."
+    "${cmd[@]}"
+}
+
 # set a SOCKS5 proxy config (share link) for gg. gg lets us proxy an entire
 # command. for example: `gg curl https://google.com` will route the network
 # traffic of that command through the previously set config or share link.

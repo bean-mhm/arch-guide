@@ -685,6 +685,50 @@ This one is an absolute must-have for me. It lets you switch workspaces by simpl
 
 2. Set __Minimum delay between scroll events__ to 50 ms.
 
+# Theming Qt apps
+
+A considerable number of apps use the [Qt](https://www.qt.io/) framework for their UI and, by default, they can look quite out-of-place in GNOME because of inconsistencies in styling. To fix this, we will install [adwaita-qt](https://github.com/FedoraQt/adwaita-qt), a Qt theme similar (enough) to GNOME's modern look.
+
+1. Install qt5ct and qt6ct. These are global control panels for Qt apps.
+
+```sh
+sudo pacman -S --noconfirm qt5ct qt6ct
+```
+
+2. Change global environment variables.
+
+```sh
+sudo nano /etc/environment
+```
+
+Add `QT_QPA_PLATFORMTHEME=qt6ct` at the end.
+
+3. Install `adwaita-qt5-git` and `adwaita-qt6-git` from the AUR.
+
+```sh
+yay -S --noconfirm adwaita-qt5-git adwaita-qt6-git
+```
+
+4. Open qt5ct and qt6ct. They're named __Qt5/6 Settings__ in the app menu.
+
+5. In both control panels, go to the __Appearance__ tab.
+
+6. Set __Style__ to _Adwaita-Dark_ or _Adwaita_.
+
+7. Set __Color scheme__ to _Style's colors_.
+
+8. Set __Standard dialogs__ to _GTK3_.
+
+9. Go to the __Fonts__ tab and set __General__ to _Adwaita Sans_ and __Fixed width__ to _JetBrainsMono Nerd Font Light_ at whatever size is comfortable for you.
+
+In my case, qt5ct was properly scaled based on my font scaling factor while qt6ct was not. Therefore, I had to use size 11 for the fonts in qt5ct and 12 in qt6ct.
+
+10. Go to the __Icon theme__ tab and double-click on _Kora_.
+
+11. Hit __OK__ to apply the changes.
+
+12. Reboot.
+
 # Ignoring lid close
 
 Personally, I want my system to stay awake when I close my laptop lid. We can edit a system file to fix that. 
@@ -869,7 +913,7 @@ Needless to say, this is different for every person. The following is just the l
 ## pacman
 
 ```
-7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender calf celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc gimp git glider gnome-sound-recorder godot-mono gpu-viewer graphs handbrake harfbuzz helvum hieroglyphic identity impression kdenlive kicad kicad-library kicad-library-3d krita lazygit less libreoffice-fresh linux-headers lsof lsp-plugins make man-db man-pages mission-center mplayer mpv ninja nodejs nvtop obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent qpwgraph qrencode reaper resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript uget unrar unzip unzip v2ray-domain-list-community v2ray-geoip vlc vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
+7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender calf celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc gimp git glider gnome-sound-recorder godot-mono gpu-viewer graphs handbrake harfbuzz helvum hieroglyphic identity impression kdenlive kicad kicad-library kicad-library-3d krita lazygit less libreoffice-fresh linux-headers lsof lsp-plugins make man-db man-pages mission-center mplayer mpv ninja nodejs nvtop obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent qpwgraph qrencode reaper resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript uget unrar unzip unzip v2ray-domain-list-community v2ray-geoip virtualbox virtualbox-ext-vnc virtualbox-host-dkms vlc vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
 ```
 
 ## AUR
