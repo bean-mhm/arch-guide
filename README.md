@@ -361,7 +361,7 @@ yay -S --noconfirm kora-icon-theme bibata-cursor-theme-bin
 sudo pacman -S --needed --noconfirm ttf-jetbrains-mono ttf-jetbrains-mono-nerd inter-font awesome-terminal-fonts otf-font-awesome woff2-font-awesome
 
 # beware, ttf-google is huge!
-yay -S --needed --noconfirm ttf-google ttf-material-symbols-variable ttf-material-symbols-variable
+yay -S --needed --noconfirm ttf-google ttf-material-symbols-variable ttf-material-symbols-variable ttf-rethink-sans ttf-rethink-sans-variable
 ```
 
 Since I'm Iranian, I'll also install some Persian fonts. No matter where you live, there's probably a font pack for your language on the AUR.
