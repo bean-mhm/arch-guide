@@ -109,7 +109,7 @@ A package can be a program, game, library (for programming languages), theme, fo
 
 [yay](https://github.com/Jguer/yay) gives us access to tons of packages from the [AUR (Arch User Repository)](https://aur.archlinux.org/) which contains almost any program, font, or theme you could imagine.
 
-__NOTE:__ The AUR is community-maintained and malicious packages can exist. Try to install things with pacman unless it only exists on the AUR, and even then, try to read its PKGBUILD script to verify it's safe.
+__NOTE:__ The AUR is community-maintained and malicious packages can exist. Try to install things with pacman unless it only exists on the AUR, and even then, try to read and verify its PKGBUILD script if possible.
 
 ```sh
 sudo pacman -S --needed --noconfirm git base-devel && \
@@ -124,6 +124,58 @@ Next, install your favorite browser. For me, that's Firefox.
 
 ```sh
 sudo pacman -S --noconfirm firefox
+```
+
+> You can search for both pacman and AUR packages using a yay command. Example: `yay -Ss game engine`
+
+# Chaotic-AUR
+
+The AUR has two significant problems.
+
+1. A lot of packages build (compile) code on the user's machine. This has its own advantages, but it can take a long time to finish and many users frankly don't care about the potential benefits. Some packages _do_ have `-bin` versions, but not all.
+
+2. More importantly, malicious code _can_ and _has_ gotten into the AUR, albeit mostly in orphan ("maintainer-less") packages which are rarely downloaded anyway. Still, ideally, we want zero malicious packages.
+
+[Chaotic-AUR](https://aur.chaotic.cx/) is a community-driven project that automatically pre-builds many AUR packages and provides them through a pacman repository. It also uses automated checks to verify updates to AUR packages before building and publishing them.
+
+Chaotic-AUR does __NOT__ prevent malicious packages, but its automated checks _have_ detected and prevented some in the past. Therefore, it's still recommended to prioritize the official pacman repos over both Chaotic-AUR and the regular AUR (which is ironically more chaotic).
+
+The website provides an [installation guide](https://aur.chaotic.cx/docs), if you're interested.
+
+# A good approach for installing a package
+
+Use `yay -Ss some keywords` to search for different instances of the package. This searches through the official pacman repositories (core, extra, multilib), the Chaotic-AUR (chaotic-aur) if you've added it, and the regular AUR. Every item has a prefix denoting which repo it comes from. Here's a made-up example:
+
+```
+> yay -Ss some-package
+aur/some-package 0.21-1 (+0 0.00) [785d14h] 
+    Some cool package
+aur/some-package-git 0.29.r15.g6f04da5-1 (+32 0.00) [362d2h] 
+    Some cool package
+extra/some-package 0.30-2 (275.8 KiB 1.2 MiB)
+    Some cool package
+chaotic-aur/some-package 0.30-2 (275.8 KiB 1.2 MiB)
+    Some cool package
+```
+
+Our hypothetical package has two versions on the AUR, one on "extra" (one of the official pacman repos: core, extra, multilib), and one on chaotic-aur (an unofficial pacman repo added manually). Typically, the one from an official pacman repo is preferred, so we can run:
+
+```sh
+sudo pacman -S some-package
+```
+
+We could also do `sudo pacman -S extra/some-package` which specifies exactly which repo we want to use. It wouldn't make a difference in this particular case, though, because "extra" comes before chaotic-aur in `/etc/pacman.conf` so it's already preferred by pacman.
+
+If we wanted to use the AUR version for some reason, we would have to use yay instead:
+
+```sh
+yay -S some-package
+```
+
+And if we wanted to get the Chaotic-AUR version:
+
+```sh
+sudo pacman -S chaotic-aur/some-package
 ```
 
 # Switching to zsh
@@ -369,8 +421,6 @@ Since I'm Iranian, I'll also install some Persian fonts. No matter where you liv
 ```sh
 yay -S --noconfirm vazirmatn-fonts ir-standard-fonts iranian-fonts vazir-code-fonts persian-fonts
 ```
-
-> You can search for both pacman and AUR packages using a yay command. Example: `yay -Ss game engine`
 
 3. Go to __Tweaks > Appearance__.
 
@@ -916,13 +966,13 @@ Needless to say, this is different for every person. The following is just the l
 ## pacman
 
 ```
-7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender calf celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc gimp git glider gnome-sound-recorder godot-mono gpu-viewer graphs handbrake harfbuzz helvum hieroglyphic identity impression kdenlive kicad kicad-library kicad-library-3d krita lazygit less libreoffice-fresh linux-headers lsof lsp-plugins make man-db man-pages mission-center mplayer mpv ninja nodejs nvtop obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent qpwgraph qrencode reaper resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript uget unrar unzip unzip v2ray-domain-list-community v2ray-geoip virtualbox virtualbox-ext-vnc virtualbox-host-dkms vlc vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
+7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender calf celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc gimp git glider gnome-sound-recorder godot-mono gpu-viewer graphs handbrake harfbuzz helvum hieroglyphic identity impression kdenlive kicad kicad-library kicad-library-3d krita lazygit less libreoffice-fresh linux-headers lsof lsp-plugins lutris make man-db man-pages mission-center mplayer mpv ninja nodejs nvtop obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent qpwgraph qrencode reaper resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript uget unrar unzip unzip v2ray-domain-list-community v2ray-geoip virtualbox virtualbox-ext-vnc virtualbox-host-dkms vlc vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
 ```
 
 ## AUR
 
 ```
-anydesk-bin debtap flaccy-bin gapless gg-bin glcapsviewer-git google-chrome gradia jamesdsp localsend-bin material-maker-bin psiphonlinuxgui redsocks2 unified-remote-server v2rayn-bin visual-studio-code-bin vulkan-caps-viewer-wayland-bin
+anydesk-bin debtap flaccy-bin gapless gg-bin glcapsviewer-git google-chrome gradia heroic-games-launcher-bin jamesdsp localsend-bin material-maker-bin psiphonlinuxgui redsocks2 unified-remote-server v2rayn-bin visual-studio-code-bin vulkan-caps-viewer-wayland-bin
 ```
 
 # Switching to proprietary NVIDIA drivers
