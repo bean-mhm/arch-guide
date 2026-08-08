@@ -242,6 +242,9 @@ bindkey '^[[5C' forward-word
 # Delete
 bindkey '^[[3~' delete-char
 bindkey '^[3~' delete-char
+
+# Ctrl + Backspace
+bindkey '^H' backward-kill-word
 ```
 
 Hit _[Ctrl+O]_ and then _[Enter]_ to save the file. Then, hit _[Ctrl+X]_ to exit nano.
@@ -973,7 +976,7 @@ Needless to say, this is different for every person. The following is just the l
 ## AUR
 
 ```
-anydesk-bin debtap flaccy-bin gapless gg-bin glcapsviewer-git google-chrome gradia heroic-games-launcher-bin jamesdsp localsend-bin material-maker-bin psiphonlinuxgui redsocks2 unified-remote-server v2rayn-bin visual-studio-code-bin vulkan-caps-viewer-wayland-bin
+anydesk-bin debtap freedownloadmanager gapless gg-bin glcapsviewer-git google-chrome gradia heroic-games-launcher-bin jamesdsp localsend-bin material-maker-bin psiphonlinuxgui redsocks2 unified-remote-server v2rayn-bin visual-studio-code-bin vulkan-caps-viewer-wayland-bin
 ```
 
 # Switching to proprietary NVIDIA drivers

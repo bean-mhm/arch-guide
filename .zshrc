@@ -53,6 +53,9 @@ bindkey '^[[5C' forward-word
 bindkey '^[[3~' delete-char
 bindkey '^[3~' delete-char
 
+# Ctrl + Backspace
+bindkey '^H' backward-kill-word
+
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
