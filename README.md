@@ -148,34 +148,35 @@ Use `yay -Ss some keywords` to search for different instances of the package. Th
 
 ```
 > yay -Ss some-package
-aur/some-package 0.21-1 (+0 0.00) [785d14h] 
+aur/some-package 0.21-1
     Some cool package
-aur/some-package-git 0.29.r15.g6f04da5-1 (+32 0.00) [362d2h] 
+aur/some-package-git 0.29.r15
     Some cool package
-extra/some-package 0.30-2 (275.8 KiB 1.2 MiB)
+extra/some-package 0.30-2
     Some cool package
-chaotic-aur/some-package 0.30-2 (275.8 KiB 1.2 MiB)
+chaotic-aur/some-package 0.21-1
     Some cool package
 ```
 
-Our hypothetical package has two versions on the AUR, one on "extra" (one of the official pacman repos: core, extra, multilib), and one on chaotic-aur (an unofficial pacman repo added manually). Typically, the one from an official pacman repo is preferred, so we can run:
+Our hypothetical package has two versions on the AUR, one on "extra" (one of the official pacman repos: core, extra, multilib), and one on chaotic-aur (an unofficial pacman repo added manually). Typically, the one from an official pacman repo is preferred, so we can run either of these two commands:
 
 ```sh
 sudo pacman -S some-package
+sudo pacman -S extra/some-package
 ```
 
-We could also do `sudo pacman -S extra/some-package` which specifies exactly which repo we want to use. It wouldn't make a difference in this particular case, though, because "extra" comes before chaotic-aur in `/etc/pacman.conf` so it's already preferred by pacman.
+The bottom one specifies exactly which repo we want to use. It wouldn't make a difference in this particular case, though, because "extra" comes before chaotic-aur in `/etc/pacman.conf` so it's already preferred by pacman.
 
-If we wanted to use the AUR version for some reason, we would have to use yay instead:
-
-```sh
-yay -S some-package
-```
-
-And if we wanted to get the Chaotic-AUR version:
+If we wanted to get the Chaotic-AUR version instead, we would have to use the `chaotic-aur/` prefix.
 
 ```sh
 sudo pacman -S chaotic-aur/some-package
+```
+
+And if we wanted to use the AUR version for some reason, we would have to use yay instead of pacman. Without sudo. You do not use yay with sudo.
+
+```sh
+yay -S some-package
 ```
 
 # Switching to zsh
