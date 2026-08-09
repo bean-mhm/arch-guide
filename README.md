@@ -452,6 +452,12 @@ sudo pacman -S --noconfirm adw-gtk-theme
 
 Now go to __Tweaks > Appearance__ and set __Legacy Applications__ to _Adw-gtk3-dark_ (or _Adw-gtk3_ if you prefer that).
 
+## Top bar clock
+
+1. Go to __Settings > System__.
+
+2. Under __Clock & Calendar__, make sure only __Week Day__ is turned on.
+
 ## File history settings
 
 1. Go to __Settings > Privacy & Security__.
@@ -507,6 +513,26 @@ These are already set by default, but we can also:
 
 1. Hit _[Super+A]_ to show the apps menu without going to the Overview first.
 2. Hit _[Super+S]_ to open the quick settings panel without using the mouse.
+
+## Power Settings
+
+1. Go to __Settings > Power (General tab)__.
+
+2. Set __Power Button Behavior__ to _Suspend_ and keep __Show Battery Percentage__ off.
+
+3. Go to the __Power Saving__ tab (look at the top center).
+
+4. Turn off __Dim Screen__ and __Automatic Screen Blank__.
+
+5. Turn off both switches under __Automatic Suspend__.
+
+6. Turn on __Automatic Power Saver__.
+
+7. Go to __Settings > Privacy & Security > Screen Lock__.
+
+8. Set __Blank Screen Delay__ to _Never_.
+
+9. Turn off __Automatic Screen Lock__.
 
 ## Logout button
 
