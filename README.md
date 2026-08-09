@@ -970,13 +970,13 @@ Needless to say, this is different for every person. The following is just the l
 ## pacman
 
 ```
-7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender calf celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc gimp git glider gnome-sound-recorder godot-mono gpu-viewer graphs handbrake harfbuzz helvum hieroglyphic identity impression kdenlive kget kicad kicad-library kicad-library-3d krita lazygit less libreoffice-fresh linux-headers lsof lsp-plugins lutris make man-db man-pages mission-center mplayer mpv ninja nodejs nvtop obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent qpwgraph qrencode reaper resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript unrar unzip unzip v2ray-domain-list-community v2ray-geoip virtualbox virtualbox-ext-vnc virtualbox-host-dkms vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
+7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender calf celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc gimp git glider gnome-sound-recorder godot-mono gpu-viewer graphs handbrake harfbuzz helvum hieroglyphic identity impression kdenlive kget kicad kicad-library kicad-library-3d krita lazygit less libreoffice-fresh linux-headers lsof lsp-plugins lutris make man-db man-pages mission-center mplayer mpv ninja nodejs nvtop obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent qpwgraph qrencode reaper reflector resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript unrar unzip unzip v2ray-domain-list-community v2ray-geoip virtualbox virtualbox-ext-vnc virtualbox-host-dkms vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
 ```
 
 ## AUR
 
 ```
-anydesk-bin debtap freedownloadmanager gapless gg-bin glcapsviewer-git google-chrome gradia heroic-games-launcher-bin jamesdsp localsend-bin material-maker-bin psiphonlinuxgui redsocks2 unified-remote-server v2rayn-bin visual-studio-code-bin vulkan-caps-viewer-wayland-bin
+anydesk-bin debtap freedownloadmanager gapless gg-bin glcapsviewer-git google-chrome gradia heroic-games-launcher-bin jamesdsp localsend-bin material-maker-bin psiphonlinuxgui redsocks2 reflector-simple unified-remote-server v2rayn-bin ventoy-bin visual-studio-code-bin vulkan-caps-viewer-wayland-bin
 ```
 
 # Switching to proprietary NVIDIA drivers
