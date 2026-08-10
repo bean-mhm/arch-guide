@@ -198,23 +198,26 @@ alias pacr="the-pacman -R"
 # pacman: sync databases
 alias pacsync="the-pacman -Syy"
 
-# pacman and yay: update everything
+# pacman: update everything
 pacupp() {
-    local reply
-    read "reply?update yay packages too (AUR)? (y/N) "
+    the-pacman -Syu --noconfirm || return
+    echo "pacman: updated everything."
+}
 
+# pacman and yay: update everything
+pacyupp() {
     sudoloop
     the-pacman -Syu --noconfirm || return
-
-    if [[ $reply == [Yy]* ]]; then
-        the-yay -Syu --noconfirm || return
-    fi
-
-    echo "updated everything"
+    the-yay -Syu --noconfirm || return
+    echo "pacman & yay: updated everything."
 }
 
 # yay: update everything
-alias yayupp='the-yay -Syu --noconfirm'
+yayupp() {
+    sudoloop
+    the-yay -Syu --noconfirm || return
+    echo "yay: updated everything."
+}
 
 # yay: install
 alias yayy='the-yay -S --noconfirm --needed'

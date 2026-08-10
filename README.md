@@ -513,6 +513,7 @@ These are already set by default, but we can also:
 
 1. Hit _[Super+A]_ to show the apps menu without going to the Overview first.
 2. Hit _[Super+S]_ to open the quick settings panel without using the mouse.
+3. Hit _[Super+L]_ to lock the screen.
 
 ## Power Settings
 
