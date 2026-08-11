@@ -213,7 +213,7 @@ Unless you're a terminal nerd and enjoy weird keyboard moves, you can fix this b
 nano ~/.zshrc
 ```
 
-> Every user has a home directory at `/home/username` (replace `username` with the name of the user). In most shells, we can simply use `~` as a shorthand for the current user's home directory. For example, `~/Desktop` is the same as `/home/username/Desktop`.
+> Every user has a home directory at `/home/username`. In most shells, we can use `~` as a shorthand for the current user's home directory (e.g. `~/Desktop` is the same as `/home/username/Desktop`). Some applications store their settings somewhere in this directory. For example, [OBS Studio](https://obsproject.com/) stores user-created scenes (along with other stuff) in `~/.config/obs-studio`.
 
 Now, go to the very bottom and paste these using _[Ctrl+Shift+V]_.
 
