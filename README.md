@@ -1003,7 +1003,7 @@ Needless to say, this is different for every person. The following is just the l
 ## AUR
 
 ```
-anydesk-bin debtap freedownloadmanager gapless gg-bin glcapsviewer-git google-chrome gradia heroic-games-launcher-bin jamesdsp localsend-bin material-maker-bin psiphonlinuxgui redsocks2 reflector-simple unified-remote-server v2rayn-bin ventoy-bin visual-studio-code-bin vulkan-caps-viewer-wayland-bin
+anydesk-bin debtap freedownloadmanager gapless gg-bin glcapsviewer-git google-chrome gradia heroic-games-launcher-bin jamesdsp localsend-bin material-maker-bin nautilus-code psiphonlinuxgui redsocks2 reflector-simple unified-remote-server v2rayn-bin ventoy-bin visual-studio-code-bin vulkan-caps-viewer-wayland-bin
 ```
 
 # Switching to proprietary NVIDIA drivers
