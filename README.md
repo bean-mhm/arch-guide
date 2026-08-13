@@ -136,7 +136,7 @@ The AUR has two significant problems.
 
 2. More importantly, malicious code _can_ and _has_ gotten into the AUR, albeit mostly in orphan ("maintainer-less") packages which are rarely downloaded anyway. Still, ideally, we want zero malicious packages.
 
-[Chaotic-AUR](https://aur.chaotic.cx/) is a community-driven project that automatically pre-builds many AUR packages and provides them through a pacman repository. It also uses automated checks to verify updates to AUR packages before building and publishing them.
+[Chaotic-AUR](https://aur.chaotic.cx/) is a community-driven project that automatically pre-builds many AUR packages and provides them through a pacman repository. It also uses automated checks (maybe also human reviews, but I'm not sure) to verify updates to AUR packages before building and publishing them.
 
 Chaotic-AUR does __NOT__ prevent malicious packages, but its automated checks _have_ detected and prevented some in the past. Therefore, it's still recommended to prioritize the official pacman repos over both Chaotic-AUR and the regular AUR (which is ironically more chaotic).
 
@@ -771,12 +771,12 @@ This one is an absolute must-have for me. It lets you switch workspaces by simpl
 
 # Theming Qt apps
 
-A considerable number of apps use the [Qt](https://www.qt.io/) framework for their UI and, by default, they can look quite out-of-place in GNOME because of inconsistencies in styling. To fix this, we will install [adwaita-qt](https://github.com/FedoraQt/adwaita-qt), a Qt theme similar (enough) to GNOME's modern look.
+A considerable number of apps (especially in the KDE Plasma world) use the [Qt](https://www.qt.io/) framework for their UI and, by default, they can look quite out-of-place in GNOME because of inconsistencies in styling. To fix this, we'll install [Darkly](https://github.com/Bali10050/darkly), a Qt theme which is pretty close to the modern GNOME look.
 
-1. Install qt5ct and qt6ct. These are global control panels for Qt apps.
+1. Install qt5ct and qt6ct (the `-kde` versions). These are basically global control panels for Qt apps.
 
 ```sh
-sudo pacman -S --noconfirm qt5ct qt6ct
+yay -S --noconfirm qt5ct-kde qt6ct-kde
 ```
 
 2. Change global environment variables.
@@ -787,19 +787,19 @@ sudo nano /etc/environment
 
 Add `QT_QPA_PLATFORMTHEME=qt6ct` at the end.
 
-3. Install `adwaita-qt5-git` and `adwaita-qt6-git` from the AUR.
+3. Install `darkly-bin` from the AUR. In my case, I had to install `frameworkintegration` with pacman before this to fix a dependency error.
 
 ```sh
-yay -S --noconfirm adwaita-qt5-git adwaita-qt6-git
+yay -S --noconfirm darkly-bin
 ```
 
 4. Open qt5ct and qt6ct. They're named __Qt5/6 Settings__ in the app menu.
 
-5. In both control panels, go to the __Appearance__ tab.
+5. In __both__ control panels, go to the __Appearance__ tab.
 
-6. Set __Style__ to _Adwaita-Dark_ or _Adwaita_.
+6. Set __Style__ to _Darkly_.
 
-7. Set __Color scheme__ to _Style's colors_.
+7. Set __Color scheme__ to... well, it's supposed to be _Darkly_, but in my case, that doesn't seem to be recognized and falls back to the default white scheme, so I ended up using one of the other available options, namely _Krita darker_.
 
 8. Set __Standard dialogs__ to _GTK3_.
 
@@ -809,9 +809,9 @@ In my case, qt5ct was properly scaled based on my font scaling factor while qt6c
 
 10. Go to the __Icon theme__ tab and double-click on _Kora_.
 
-11. Hit __OK__ to apply the changes.
+11. Hit __OK__ on both control panels to apply the changes.
 
-12. Reboot.
+12. Reboot for `/etc/environment` to take effect.
 
 # Ignoring lid close
 
@@ -997,7 +997,7 @@ Needless to say, this is different for every person. The following is just the l
 ## pacman
 
 ```
-7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender calf celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc ghex gimp git glider gnome-sound-recorder godot-mono gpu-viewer graphs handbrake harfbuzz helvum hieroglyphic identity impression kdenlive kget kicad kicad-library kicad-library-3d krita lazygit less libreoffice-fresh linux-headers lsof lsp-plugins lutris make man-db man-pages mission-center mplayer mpv ninja nodejs nvtop obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent qpwgraph qrencode reaper reflector resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript unrar unzip unzip v2ray-domain-list-community v2ray-geoip virtualbox virtualbox-ext-vnc virtualbox-host-dkms vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
+7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender calf celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord drawy element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc ghex gimp git glider gnome-sound-recorder godot-mono gpu-viewer graphs handbrake harfbuzz helvum hieroglyphic identity impression kdenlive kget kicad kicad-library kicad-library-3d krita lact lazygit less libreoffice-fresh linux-headers lsof lsp-plugins lutris make man-db man-pages mission-center mplayer mpv ninja nodejs nvtop obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent qpwgraph qrencode reaper reflector resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript unrar unzip unzip v2ray-domain-list-community v2ray-geoip virtualbox virtualbox-ext-vnc virtualbox-host-dkms vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
 ```
 
 ## AUR
