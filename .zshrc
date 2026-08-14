@@ -111,6 +111,9 @@ alias editrc='code ~/.zshrc'
 # backup .zshrc
 alias backrc='cp ~/.zshrc "/mnt/GG/Projects/0dev/arch-guide"'
 
+# edit system-wide environment variables
+alias editenv='sudo nano /etc/environment'
+
 # copy to and paste from clipboard (wl-clipboard must be installed)
 alias cbc="wl-copy"
 alias cbp="wl-paste"

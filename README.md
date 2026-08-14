@@ -771,9 +771,9 @@ This one is an absolute must-have for me. It lets you switch workspaces by simpl
 
 # Theming Qt apps
 
-A considerable number of apps (especially in the KDE Plasma world) use the [Qt](https://www.qt.io/) framework for their UI and, by default, they can look quite out-of-place in GNOME because of inconsistencies in styling. To fix this, we'll install [Darkly](https://github.com/Bali10050/darkly), a Qt theme which is pretty close to the modern GNOME look.
+A considerable number of apps (especially in the KDE Plasma world) use the [Qt](https://www.qt.io/) framework for their UI and, by default, they can look quite out-of-place in GNOME because of inconsistencies in styling. To fix this, we'll install [Darkly](https://github.com/Bali10050/darkly), a Plasma theme which is pretty close to the modern GNOME look.
 
-1. Install qt5ct and qt6ct (the `-kde` versions). These are basically global control panels for Qt apps.
+1. Install qt5ct and qt6ct which are global control panels for Qt apps. Specifically, we want the `-kde` versions, because Plasma themes are a bit different than raw Qt.
 
 ```sh
 yay -S --noconfirm qt5ct-kde qt6ct-kde
@@ -799,19 +799,19 @@ yay -S --noconfirm darkly-bin
 
 6. Set __Style__ to _Darkly_.
 
-7. Set __Color scheme__ to... well, it's supposed to be _Darkly_, but in my case, that doesn't seem to be recognized and falls back to the default white scheme, so I ended up using one of the other available options, namely _Krita darker_.
+7. Set __Color scheme__ to _Darkly (KColorScheme)_.
 
 8. Set __Standard dialogs__ to _GTK3_.
 
-9. Go to the __Fonts__ tab and set __General__ to _Adwaita Sans_ and __Fixed width__ to _JetBrainsMono Nerd Font Light_ at whatever size is comfortable for you.
-
-In my case, qt5ct was properly scaled based on my font scaling factor while qt6ct was not. Therefore, I had to use size 11 for the fonts in qt5ct and 12 in qt6ct.
+9. Go to the __Fonts__ tab and set __General__ to _Adwaita Sans_ and __Fixed width__ to _JetBrainsMono Nerd Font Light_ at whatever size is comfortable for you. In my case, qt5ct was properly scaled based on my font scaling factor while qt6ct was not. Therefore, I had to use size 11 for the fonts in qt5ct and 12 for qt6ct.
 
 10. Go to the __Icon theme__ tab and double-click on _Kora_.
 
 11. Hit __OK__ on both control panels to apply the changes.
 
-12. Reboot for `/etc/environment` to take effect.
+12. If you want all users on the system to use these settings, run `sudo qt5ct & sudo qt6ct` and redo the steps from above.
+
+13. Reboot for `/etc/environment` to take effect.
 
 # Ignoring lid close
 
