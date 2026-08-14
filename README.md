@@ -771,7 +771,7 @@ This one is an absolute must-have for me. It lets you switch workspaces by simpl
 
 # Theming Qt apps
 
-A considerable number of apps (especially in the KDE Plasma world) use the [Qt](https://www.qt.io/) framework for their UI and, by default, they can look quite out-of-place in GNOME because of inconsistencies in styling. To fix this, we'll install [Darkly](https://github.com/Bali10050/darkly), a Plasma theme which is pretty close to the modern GNOME look.
+A considerable number of apps (especially in the KDE Plasma world) use the [Qt](https://www.qt.io/) framework for their UI and, by default, they can look quite out-of-place in GNOME because of inconsistencies in styling. To fix this, we'll install [Darkly](https://github.com/Bali10050/darkly), a Qt/Plasma theme similar enough to the modern GNOME look.
 
 1. Install qt5ct and qt6ct which are global control panels for Qt apps. Specifically, we want the `-kde` versions, because Plasma themes are a bit different than raw Qt.
 
@@ -811,7 +811,9 @@ yay -S --noconfirm darkly-bin
 
 12. If you want all users on the system to use these settings, run `sudo qt5ct & sudo qt6ct` and redo the steps from above.
 
-13. Reboot for `/etc/environment` to take effect.
+13. Darkly has its own detailed control panel. You can open it by running `darkly-settings6` in the terminal. Personally, I didn't need to change anything.
+
+14. Reboot for `/etc/environment` to take effect.
 
 # Ignoring lid close
 
