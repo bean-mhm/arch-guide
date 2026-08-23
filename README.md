@@ -245,6 +245,9 @@ bindkey '^[3~' delete-char
 
 # Ctrl + Backspace
 bindkey '^H' backward-kill-word
+
+# Ctrl + Delete
+bindkey '^[[3;5~' kill-word
 ```
 
 Hit _[Ctrl+O]_ and then _[Enter]_ to save the file. Then, hit _[Ctrl+X]_ to exit nano.
@@ -311,14 +314,14 @@ The reason I have included my `.zshrc` in this repo is mostly to keep a backup, 
 These packages can help prevent headaches down the line regarding disk mounting.
 
 ```sh
-sudo pacman -S --noconfirm ntfs-3g udiskie gvfs gvfs-mtp gvfs-gphoto2 gvfs-afc udiskie udisks2
+sudo pacman -S --noconfirm ntfs-3g udiskie gvfs gvfs-mtp gvfs-gphoto2 gvfs-afc udiskie udisks2 gnome-disk-utility
 ```
 
 Make sure to restart your computer after this step.
 
 # Mounting NTFS volumes
 
-Some of the volumes (drives) in my HDD use the NTFS file system and, even with the above packages installed, GNOME's file manager (nautilus) still fails to mount (think open or load) them and shows an error. Here's a permanent fix to that, unless you physically swap out your disk.
+Some of the volumes (drives) in my HDD use the NTFS file system and, even with the above packages installed, GNOME's file manager (nautilus) still fails to mount (open/load) them and shows an error. Here's my fix for that.
 
 ## 1. Get the UUID
 
@@ -346,7 +349,7 @@ Add the following section at the end, replacing `YOUR-UUID` with the UUID you go
 
 ```
 # auto-mount NTFS volumes
-UUID=YOUR-UUID  /mnt/Stuff  ntfs-3g  defaults,noatime,uid=1000,gid=1000,umask=000  0  0
+UUID=YOUR-UUID  /mnt/Stuff  ntfs-3g  defaults,nofail,noatime,x-gvfs-show,uid=1000,gid=1000,umask=000  0  0
 ```
 
 Hit _[Ctrl+O, Enter]_ to save the file and _[Ctrl+X]_ to exit nano.
@@ -397,7 +400,7 @@ Because of my screen size and average viewing distance, I find 100% scaling too 
 
 2. Adjust scale and other settings based on your conditions.
 
-3. Open GNOME Tweaks (press _[Super]_ to open Overview, then type Tweaks and hit _[Enter]_).
+3. Open [Tweaks](https://archlinux.org/packages/extra/any/gnome-tweaks/) (press _[Super]_ to open Overview, then type Tweaks and hit _[Enter]_).
 
 4. Go to the __Fonts__ tab and set __Scaling Factor__ to something you're comfortable with. For me, 1.13.
 
@@ -454,13 +457,13 @@ Now go to __Tweaks > Appearance__ and set __Legacy Applications__ to _Adw-gtk3-d
 
 ## Top bar clock
 
-1. Go to __Settings > System__.
+1. Go to __Settings > System > Date & Time__.
 
 2. Under __Clock & Calendar__, make sure only __Week Day__ is turned on.
 
 ## File history settings
 
-1. Go to __Settings > Privacy & Security__.
+1. Go to __Settings > Privacy & Security > File History & Trash__.
 
 2. Set __File History__ Duration to 30 days.
 
@@ -519,15 +522,15 @@ These are already set by default, but we can also:
 
 1. Go to __Settings > Power (General tab)__.
 
-2. Set __Power Button Behavior__ to _Suspend_ and keep __Show Battery Percentage__ off.
+2. Set __Power Button Behavior__ to _Suspend_ and keep __Show Battery Percentage__ off (laptop-only).
 
 3. Go to the __Power Saving__ tab (look at the top center).
 
-4. Turn off __Dim Screen__ and __Automatic Screen Blank__.
+4. Turn off __Dim Screen__ (laptop-only) and __Automatic Screen Blank__.
 
-5. Turn off both switches under __Automatic Suspend__.
+5. Turn off both switches (or the one switch on PC) under __Automatic Suspend__.
 
-6. Turn on __Automatic Power Saver__.
+6. Turn on __Automatic Power Saver__ (laptop-only).
 
 7. Go to __Settings > Privacy & Security > Screen Lock__.
 
@@ -999,7 +1002,7 @@ Needless to say, this is different for every person. The following is just the l
 ## pacman
 
 ```
-7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender calf celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord drawy element-desktop errands eyedropper fastfetch fd ffmpeg fzf gcc ghex gimp git glider gnome-sound-recorder godot-mono gpu-viewer graphs handbrake harfbuzz helvum hieroglyphic identity impression kdenlive kget kicad kicad-library kicad-library-3d krita lact lazygit less libreoffice-fresh linux-headers lsof lsp-plugins lutris make man-db man-pages mission-center mplayer mpv ninja nodejs nvtop obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent qpwgraph qrencode reaper reflector resources ripgrep rust shortwave spirv-tools steam telegram-desktop telegram-desktop totem typescript unrar unzip unzip v2ray-domain-list-community v2ray-geoip virtualbox virtualbox-ext-vnc virtualbox-host-dkms vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
+7zip amberol apostrophe audacity audio-sharing authenticator autoconf automake blanket blender calf celluloid clang cmake collision copyparty cpu-x curl darktable dconf-editor decoder discord drawy element-desktop errands eyedropper fastfetch fd ffmpeg file-roller fzf gcc ghex gimp git glider gnome-sound-recorder godot-mono gpu-viewer graphs handbrake harfbuzz helvum hieroglyphic identity impression kdenlive kget kicad kicad-library kicad-library-3d krita lact lazygit less libreoffice-fresh linux-headers lsof lsp-plugins lutris make man-db man-pages mission-center mplayer mpv ninja nodejs nvtop obs-studio openrgb patch pinta playerctl python-numpy python-opengl python-pillow python-pycurl python-requests python-yaml qbittorrent qpwgraph qrencode reaper reflector resources ripgrep rust shortwave spirv-tools steam telegram-desktop totem typescript unrar unzip v2ray-domain-list-community v2ray-geoip virtualbox virtualbox-ext-vnc virtualbox-host-dkms vlc vlc-plugins-all vulkan-headers vulkan-tools wget wl-clipboard yt-dlp zoxide
 ```
 
 ## AUR
@@ -1117,7 +1120,7 @@ A couple things to keep in mind:
 
 ## 3. Proxying in the terminal
 
-A lot of programs (GUI and CLI) ignore proxy-related environment variables like `all_proxy`, and v2rayN's Tun mode doesn't always work reliably, but worry not! There's a tool named gg that routes a command's network traffic through a V2Ray config. For example, we can run `gg curl https://google.com` and it will proxy the entire command through a previously set V2Ray config or share link. gg is available on the AUR.
+A lot of programs (GUI and CLI) ignore proxy-related environment variables like `all_proxy`, and v2rayN's Tun mode doesn't always work reliably, but worry not! There's a tool named [gg](https://github.com/daeuniverse/gg) that routes a command's network traffic through a V2Ray config. For example, we can run `gg curl https://google.com` and it will proxy the entire command through a previously set V2Ray config or share link. gg is available on the AUR.
 
 ```sh
 yay -S --noconfirm gg-bin
