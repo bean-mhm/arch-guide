@@ -590,6 +590,7 @@ sudo pacman -S --noconfirm gnome-browser-connector
 - [Slider Percentages](https://extensions.gnome.org/extension/10125/slider-percentages/)
 - [Status Tray](https://extensions.gnome.org/extension/9164/status-tray/)
 - [Switch Workspace](https://extensions.gnome.org/extension/1231/switch-workspace/)
+- [System Monitor](https://extensions.gnome.org/extension/6807/system-monitor/)
 - [Top Panel Workspace Scroll](https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/)
 
 # Configuring extensions
@@ -763,6 +764,10 @@ No settings to change for this one either either.
 Set __Switch Workspace Keybinding__ to _[Super+Tab]_. We can now use this hotkey to switch workspaces.
 
 > Another way to switch workspaces is to hold _[Super]_ and scroll with your mouse. You can also hover your mouse over the workspace indicator at the top left and scroll there.
+
+## System Monitor
+
+No settings to change for this one either either either. _However,_ you can click on it in the top bar to choose which stats you wanna see. I just keep __Upload__ and __Download__.
 
 ## Top Panel Workspace Scroll
 
