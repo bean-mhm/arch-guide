@@ -628,15 +628,20 @@ alias update-mirrors='sudo reflector --connection-timeout 3 --download-timeout 3
 # > winepath /mnt/vol1/test hello.txt
 # > Z:\mnt\vol1\test hello.txt
 winepath() {
-    local path="${(j: :)@}"
-    path="${path//\//\\}"
+    local p="${(j: :)@}"
+    p="${p//\//\\\\}"
 
-    if [[ "$path" == \\* ]]; then
-        path="Z:$path"
+    if [[ "$p" == \\* ]]; then
+        p="Z:$p"
     fi
 
-    echo "$path"
+    echo "$p"
+
+	# copy to clipboard (wl-clipboard must be installed)
+	echo -n "$p" | wl-copy
 }
+
+alias winepathc='winepath'
 
 
 
