@@ -624,6 +624,20 @@ alias resetfaillock="faillock --user $USER --reset"
 
 alias update-mirrors='sudo reflector --connection-timeout 3 --download-timeout 3 --sort rate --threads 8 -c de,fi,us --ipv4 -f 32 --save /etc/pacman.d/mirrorlist'
 
+# convert a posix path to a wine path. example:
+# > winepath /mnt/vol1/test hello.txt
+# > Z:\mnt\vol1\test hello.txt
+winepath() {
+    local path="${(j: :)@}"
+    path="${path//\//\\}"
+
+    if [[ "$path" == \\* ]]; then
+        path="Z:$path"
+    fi
+
+    echo "$path"
+}
+
 
 
 #-----------------------------------------------------------
