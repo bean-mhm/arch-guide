@@ -641,7 +641,11 @@ winepath() {
 	echo -n "$p" | wl-copy
 }
 
-alias winepathc='winepath'
+qrpng() {
+    p=~/Pictures/qr-"$(date +'%Y-%m-%d--%H-%M-%S.%3N')".png
+    qrencode -t PNG -l H -s 24 -o $p "$@"
+    echo $p
+}
 
 
 
