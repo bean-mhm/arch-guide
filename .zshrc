@@ -619,6 +619,9 @@ cleanupp() {
 # get fresh V2Ray configs (share links) and copy to clipboard
 alias getv2r="curl -sS https://raw.githubusercontent.com/barry-far/V2ray-Config/refs/heads/main/All_Configs_Sub.txt | cbc"
 
+# get fresh SOCKS5 proxy addresses and copy to clipboard
+alias getsocks='curl -sS https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@main/proxies/protocols/socks5/data.txt | cbc'
+
 # this is for a weird bug where sudo randomly stops accepting my password
 alias resetfaillock="faillock --user $USER --reset"
 
