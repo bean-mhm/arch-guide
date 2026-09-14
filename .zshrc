@@ -206,6 +206,7 @@ alias pacsync="the-pacman -Syy"
 
 # pacman: update everything
 pacupp() {
+    sudoloop
     the-pacman -Syu --noconfirm || return
     echo "pacman: updated everything."
 }
@@ -223,6 +224,14 @@ yayupp() {
     sudoloop
     the-yay -Syu --noconfirm || return
     echo "yay: updated everything."
+}
+
+# loop some command with a 1 second delay between each run.
+loop1s() {
+    while true; do;
+        "$@";
+        sleep 1;
+    done;
 }
 
 # yay: install
@@ -625,7 +634,7 @@ alias getsocks='curl -sS https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@ma
 # this is for a weird bug where sudo randomly stops accepting my password
 alias resetfaillock="faillock --user $USER --reset"
 
-alias update-mirrors='sudo reflector --connection-timeout 3 --download-timeout 3 --sort rate --threads 8 -c de,fi,us --ipv4 -f 32 --save /etc/pacman.d/mirrorlist'
+alias update-mirrors='sudo reflector --connection-timeout 5 --download-timeout 5 --sort rate --threads 8 -c de,fi,fr,us --ipv4 -f 64 --save /etc/pacman.d/mirrorlist'
 
 # convert a posix path to a wine path. example:
 # > winepath /mnt/vol1/test hello.txt
