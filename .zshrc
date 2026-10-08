@@ -661,6 +661,12 @@ qrpng() {
 
 alias cdev="cd /mnt/GG/Projects/0dev"
 
+# https://github.com/aunetx/blur-my-shell/blob/master/scripts/GUIDE.md
+rebuild-gnome-rounded-blur() {
+    the-yay -R --noconfirm gnome-rounded-blur
+    yayy gnome-rounded-blur
+}
+
 
 
 #-----------------------------------------------------------
