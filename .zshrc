@@ -667,6 +667,115 @@ rebuild-gnome-rounded-blur() {
     yayy gnome-rounded-blur
 }
 
+telnet-modem-tf-i60() {
+    if (( $# != 2 )); then
+        print -u2 -- \
+            'usage: telnet-modem-tf-i60 <router-ip> <admin-password>'
+        return 2
+    fi
+
+    local router_ip="$1"
+    local modem_password="$2"
+
+    (
+        local login_output
+
+        login_output=$(
+            curl --silent --show-error \
+                "http://$router_ip/login.cgi_post" \
+                --data \
+                'submit_button=login&submit_type=do_login&change_action=gozila_cgi&password=&username=admin' \
+                --data-urlencode "passwd=$modem_password"
+        )
+
+        if [[ "$login_output" != success ]]; then
+            print -r -- "login error: $login_output"
+            exit 1
+        fi
+
+        local traceroute_pid=''
+
+        # stop the blocking request when this function exits
+        trap '
+            if [[ -n "$traceroute_pid" ]]; then
+                kill "$traceroute_pid" 2>/dev/null
+                wait "$traceroute_pid" 2>/dev/null
+            fi
+        ' EXIT
+
+        # ensure cleanup also runs when interrupted
+        trap 'exit 130' INT
+        trap 'exit 143' TERM
+        trap 'exit 129' HUP
+
+        curl --silent --show-error \
+            "http://$router_ip/login.cgi_post" \
+            --data \
+            'submit_button=traceroute_test&submit_type=do_traceroute&change_action=gozila_cgi&tracerouteAddr=127.0.0.1%20-w%201%20%7C%20telnetd%20-p%2023%20-l%20/bin/sh&web_maxhop_count=1&web_net_mode=ipv4' &
+        traceroute_pid=$!
+
+        # allow the modem time to start the telnet daemon
+        sleep 5
+
+		echo " "
+		echo "===================== WARNING ======================"
+		echo " MAKE SURE TO RUN 'pkill telnetd' WHEN YOU'RE DONE. "
+		echo " MAKE SURE TO RUN 'pkill telnetd' WHEN YOU'RE DONE. "
+		echo " MAKE SURE TO RUN 'pkill telnetd' WHEN YOU'RE DONE. "
+		echo "===================================================="
+		echo " "
+		echo "NOTE: RUN THIS TO EDIT FILES: mount -o remount,rw /"
+		echo " "
+
+        telnet $router_ip
+        local telnet_status=$?
+
+        exit "$telnet_status"
+    )
+}
+
+dl-speed-test() {
+    local download_url="$1"
+    if [[ -z "$download_url" ]]; then
+        echo "usage: dl-speed-test <download-url>"
+		echo "(run dl-speed-test-urls to see a list of URLs)"
+        return 1
+    fi
+	wget -O /dev/null $download_url
+}
+
+dl-speed-test-urls() {
+	echo "https://speed.cloudflare.com/__down?bytes=10000000"
+	echo "http://eu-central-1.linodeobjects.com/speedtest/10MB-speedtest"
+	echo "http://speedtest.tele2.net/10MB.zip"
+	echo "http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
+	echo ""
+	echo "https://speed.cloudflare.com/__down?bytes=50000000"
+	echo ""
+	echo "https://speed.cloudflare.com/__down?bytes=100000000"
+	echo "https://nbg1-speed.hetzner.com/100MB.bin"
+	echo "http://speedtest.newark.linode.com/100MB-newark.bin"
+	echo "http://speedtest.tokyo2.linode.com/100MB-tokyo2.bin"
+	echo "http://speedtest.singapore.linode.com/100MB-singapore.bin"
+	echo "http://speedtest.atlanta.linode.com/100MB-atlanta.bin"
+	echo "http://speedtest.dallas.linode.com/100MB-dallas.bin"
+	echo "https://sgp-ping.vultr.com/vultr.com.100MB.bin"
+	echo "https://hnd-jp-ping.vultr.com/vultr.com.100MB.bin"
+	echo "https://fra-de-ping.vultr.com/vultr.com.100MB.bin"
+	echo "http://il-us-ping.vultr.com/vultr.com.100MB.bin"
+	echo "http://ga-us-ping.vultr.com/vultr.com.100MB.bin"
+	echo "https://nj-us-ping.vultr.com/vultr.com.100MB.bin"
+	echo "http://speedtest-nyc1.digitalocean.com/100mb.test"
+	echo "http://proof.ovh.net/files/100Mio.dat"
+	echo "http://proof.ovh.ca/files/100Mio.dat"
+	echo "http://speedtest.tele2.net/100MB.zip"
+	echo ""
+	echo "https://speed.cloudflare.com/__down?bytes=1000000000"
+	echo "http://speedtest-fra1.digitalocean.com/1gb.test"
+	echo ""
+	echo "http://speedtest-sgp1.digitalocean.com/5gb.test"
+}
+
 
 
 #-----------------------------------------------------------
