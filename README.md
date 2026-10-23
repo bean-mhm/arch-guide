@@ -623,41 +623,41 @@ We can now open clipboard history with _[Super+V]_ and use Emojis with _[Super+.
 
 ## Blur my Shell
 
+IMO, blurry backgrounds are one of the greatest inventions in graphicals UIs, and I'm very grateful that __Blur my Shell__ exists for GNOME.
+
 1. Open its settings and go to the __Pipelines__ tab if not already there.
 
 2. Under the __Default__ pipeline, Click __Manage effects__.
 
-3. Expand __Native gaussian blur__. Set __Radius__ to 60 and __Brightness__ to 0.45.
+3. Expand __Dual Kawase blur__. Set __Radius__ to 100 and __Brightness__ to 0.50.
 
-4. Click __Add Effect__ and choose __Noise__. Expand it and set __Noise__ to 0.15 and __Lightness__ to 0.70.
+4. Click __Add Effect__ and choose __Noise__. Expand it and set __Noise__ to 0.04 and __Lightness__ to 0.40.
 
-5. Repeat the same steps for the __Default rounded__ pipeline, making sure the __Corner__ effect comes at the very bottom. Also, set the __Radius__ of the __Corner__ effect to 20.
+5. Click __Add Pipeline__ to add a new pipeline and name it __Lockscreen__.
 
-6. Click __Add Pipeline__ to add a new pipeline and name it __Lockscreen__.
+6. The new __Lockscreen__ pipeline should have a __Dual Kawase blur__ with a __Radius__ of 100 and a __Brightness__ of 0.60 followed by a __Noise__ effect with the same values as in the __Default__ pipeline.
 
-7. Click __Manage effects__ on the new __Lockscreen__ pipeline and add a __Native gaussian blur__ with a __Radius__ of 100 and a __Brightness__ of 0.60 followed by a __Noise__ effect with the same values as in the __Default__ pipeline.
+7. Create a new pipeline named __Transparent__ with the exact same configuration as the __Default__ pipeline, except with the __Brightness__ of the __Dual Kawase blur__ set to 1.0.
 
-8. Go to the __Overview__ tab and set __Overview components style__ to _Light_. In the __Application folder blur__ section, set __Sigma__ to 50 and __Brightness__ to 0.60.
+8. Go to the __Overview__ tab. Set __Overview components style__ to _Automatic_, and turn on __Application folder blur__ with its __Pipeline__ set to __Default__. Set __Application folder dialogs style__ to _Automatic_.
 
-9. Go to the __Applications__ tab and enable __Applications blur__.
+9. Go to the __Dash__ tab and turn on __Dock blur__. Set __Blur type__ to _Dynamic_ and __Pipeline__ to __Default__. Turn on __Override background__ and turn off __Disable in overview__.
 
-10. Set __Blur type__ to _Dynamic_, __Sigma__ to 35, __Brightness__ to 1.00, and __Opacity__ to 215.
+10. Go to the __Applications__ tab and enable __Applications blur__.
 
-11. Disable __Opaque focused window__.
+11. Set __Pipeline__ to __Transparent__ and __Opacity__ to 215.
 
-12. Prepare the applications which you want to have a translucent blurry background. For me, that's the default console (kgx) and text editor, so I'll have them open.
+12. Disable __Opaque focused window__ and enable __Blur on overview__.
 
-13. In the __Whitelist__ section, hit __Add Window__ and click on the app you want to get blurred.
+13. Prepare the applications which you want to have a translucent blurry background. For me, that's the default console (kgx) and text editor, so I'll have them open.
 
-14. Go to the __Other__ tab. Under __Lockscreen blur__, set __Pipeline__ to __Lockscreen__.
+14. In the __Whitelist__ section, hit __Add Window__ and click on the app you want to get blurred. Repeat this for every app you want blurred.
 
-15. To avoid artifacts near rounded corners, it's recommended to install the [gnome-rounded-blur helper script](https://github.com/aunetx/blur-my-shell/blob/master/scripts/GUIDE.md).
+15. Go to the __Popups__ tab and turn on __Popup blur__. Set __Blur type__ to _Dynamic_ and __Pipeline__ to __Default__. Turn on __Override background__, then expand it and set __Background style__ to _Automatic_.
 
-```sh
-yay -S --noconfirm gnome-rounded-blur
-```
+16. Go to the __Other__ tab. Turn on __Lockscreen blur__ and, under it, set __Pipeline__ to __Lockscreen__.
 
-Blurry backgrounds are probably one of the greatest inventions in graphicals UIs.
+17. Turn on __Screenshot blur__ and set its __Pipeline__ to __Default__.
 
 ## Burn My Windows
 
