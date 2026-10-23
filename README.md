@@ -637,7 +637,7 @@ IMO, blurry backgrounds are one of the greatest inventions in graphicals UIs, an
 
 6. The new __Lockscreen__ pipeline should have a __Dual Kawase blur__ with a __Radius__ of 100 and a __Brightness__ of 0.60 followed by a __Noise__ effect with the same values as in the __Default__ pipeline.
 
-7. Create a new pipeline named __Transparent__ with the exact same configuration as the __Default__ pipeline, except with the __Brightness__ of the __Dual Kawase blur__ set to 1.0.
+7. Create a new pipeline named __Transparent__ with the exact same configuration as the __Default__ pipeline, except with the __Brightness__ of the __Dual Kawase blur__ set to 0.90.
 
 8. Go to the __Overview__ tab. Set __Overview components style__ to _Automatic_, and turn on __Application folder blur__ with its __Pipeline__ set to __Default__. Set __Application folder dialogs style__ to _Automatic_.
 
